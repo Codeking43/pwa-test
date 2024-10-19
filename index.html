@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background: linear-gradient(#0c3b6b, #051f3f);
+        }
+        
+        .rain {
+          position: absolute;
+          width: 2px;
+          height: 10px;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 50%;
+          animation: fall linear infinite;
+        }
+    
+        @keyframes fall {
+          0% {
+            top: -10px;
+            transform: translateX(0);
+            opacity: 1;
+          }
+          90% {       opacity: 1;
+      }
+      100% {
+        top: 100vh;
+        transform: translateX(10px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+    <!--MONFUNG NKOMBE UPWORK PWA SAMPLE-->
+   <div>
+     <img src="./3.jpg" alt="">
+    <h1>Welcome to My PWA</h1>
+    <p>PWA SUPER COOL!</p>
+
+</div>
+   
+    <script src="script.js"></script>
+    <script>
+      function createRaindrop() {
+        const rain = document.createElement('div');
+        rain.classList.add('rain');
+        
+        // Randomize horizontal position and animation duration
+        rain.style.left = Math.random() * 100 + 'vw';
+        rain.style.animationDuration = Math.random() * 1 + 0.5 + 's';
+        
+        document.body.appendChild(rain);
+  
+        // Remove the raindrop after falling to free memory
+        setTimeout(() => {
+          rain.remove();
+        }, 1500);
+      }
+  
+      // Create raindrops at an interval
+      setInterval(createRaindrop, 50);
+    </script>
+
+</body>
+</html>
